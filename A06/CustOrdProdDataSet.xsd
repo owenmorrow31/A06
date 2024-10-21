@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CustOrdProdDataSet" targetNamespace="http://tempuri.org/CustOrdProdDataSet.xsd" xmlns:mstns="http://tempuri.org/CustOrdProdDataSet.xsd" xmlns="http://tempuri.org/CustOrdProdDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CustOrdProdConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CustOrdProdConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.A06.Properties.Settings.GlobalReference.Default.CustOrdProdConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="customerinformationTableAdapter" GeneratorDataComponentClassName="customerinformationTableAdapter" Name="customerinformation" UserDataComponentName="customerinformationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CustOrdProdConnectionString (Settings)" DbObjectName="CustOrdProd.dbo.customerinformation" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CustomerID, FullName, City, NumberOfOrders, TotalDetailLines, TotalPurchases FROM dbo.customerinformation</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="City" DataSetColumn="City" />
+              <Mapping SourceColumn="NumberOfOrders" DataSetColumn="NumberOfOrders" />
+              <Mapping SourceColumn="TotalDetailLines" DataSetColumn="TotalDetailLines" />
+              <Mapping SourceColumn="TotalPurchases" DataSetColumn="TotalPurchases" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrderDetailsTableAdapter" GeneratorDataComponentClassName="OrderDetailsTableAdapter" Name="OrderDetails" UserDataComponentName="OrderDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CustOrdProdConnectionString (Settings)" DbObjectName="CustOrdProd.dbo.OrderDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT OrderID, DateOrdered, TotalAmount, NumberOfDistinctItems, TotalQuantity FROM dbo.OrderDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="OrderID" DataSetColumn="OrderID" />
+              <Mapping SourceColumn="DateOrdered" DataSetColumn="DateOrdered" />
+              <Mapping SourceColumn="TotalAmount" DataSetColumn="TotalAmount" />
+              <Mapping SourceColumn="NumberOfDistinctItems" DataSetColumn="NumberOfDistinctItems" />
+              <Mapping SourceColumn="TotalQuantity" DataSetColumn="TotalQuantity" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrderItemDetailsTableAdapter" GeneratorDataComponentClassName="OrderItemDetailsTableAdapter" Name="OrderItemDetails" UserDataComponentName="OrderItemDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CustOrdProdConnectionString (Settings)" DbObjectName="CustOrdProd.dbo.OrderItemDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT OrderId, ProductID, ProductName, UnitPrice, Quantity, TotalCost FROM dbo.OrderItemDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="OrderId" DataSetColumn="OrderId" />
+              <Mapping SourceColumn="ProductID" DataSetColumn="ProductID" />
+              <Mapping SourceColumn="ProductName" DataSetColumn="ProductName" />
+              <Mapping SourceColumn="UnitPrice" DataSetColumn="UnitPrice" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="TotalCost" DataSetColumn="TotalCost" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CustOrdProdDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="CustOrdProdDataSet" msprop:Generator_DataSetName="CustOrdProdDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="customerinformation" msprop:Generator_RowEvHandlerName="customerinformationRowChangeEventHandler" msprop:Generator_RowDeletedName="customerinformationRowDeleted" msprop:Generator_RowDeletingName="customerinformationRowDeleting" msprop:Generator_RowEvArgName="customerinformationRowChangeEvent" msprop:Generator_TablePropName="customerinformation" msprop:Generator_RowChangedName="customerinformationRowChanged" msprop:Generator_RowChangingName="customerinformationRowChanging" msprop:Generator_TableClassName="customerinformationDataTable" msprop:Generator_RowClassName="customerinformationRow" msprop:Generator_TableVarName="tablecustomerinformation" msprop:Generator_UserTableName="customerinformation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
+              <xs:element name="FullName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_UserColumnName="FullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="City" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_UserColumnName="City" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NumberOfOrders" msprop:Generator_ColumnPropNameInRow="NumberOfOrders" msprop:Generator_ColumnPropNameInTable="NumberOfOrdersColumn" msprop:Generator_ColumnVarNameInTable="columnNumberOfOrders" msprop:Generator_UserColumnName="NumberOfOrders" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalDetailLines" msprop:Generator_ColumnPropNameInRow="TotalDetailLines" msprop:Generator_ColumnPropNameInTable="TotalDetailLinesColumn" msprop:Generator_ColumnVarNameInTable="columnTotalDetailLines" msprop:Generator_UserColumnName="TotalDetailLines" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalPurchases" msprop:Generator_ColumnPropNameInRow="TotalPurchases" msprop:Generator_ColumnPropNameInTable="TotalPurchasesColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPurchases" msprop:Generator_UserColumnName="TotalPurchases" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OrderDetails" msprop:Generator_RowEvHandlerName="OrderDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderDetailsRowDeleted" msprop:Generator_RowDeletingName="OrderDetailsRowDeleting" msprop:Generator_RowEvArgName="OrderDetailsRowChangeEvent" msprop:Generator_TablePropName="OrderDetails" msprop:Generator_RowChangedName="OrderDetailsRowChanged" msprop:Generator_RowChangingName="OrderDetailsRowChanging" msprop:Generator_TableClassName="OrderDetailsDataTable" msprop:Generator_RowClassName="OrderDetailsRow" msprop:Generator_TableVarName="tableOrderDetails" msprop:Generator_UserTableName="OrderDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_UserColumnName="OrderID" type="xs:int" />
+              <xs:element name="DateOrdered" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="DateOrdered" msprop:Generator_ColumnPropNameInTable="DateOrderedColumn" msprop:Generator_ColumnVarNameInTable="columnDateOrdered" msprop:Generator_UserColumnName="DateOrdered" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalAmount" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" msprop:Generator_UserColumnName="TotalAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NumberOfDistinctItems" msprop:Generator_ColumnPropNameInRow="NumberOfDistinctItems" msprop:Generator_ColumnPropNameInTable="NumberOfDistinctItemsColumn" msprop:Generator_ColumnVarNameInTable="columnNumberOfDistinctItems" msprop:Generator_UserColumnName="NumberOfDistinctItems" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalQuantity" msprop:Generator_ColumnPropNameInRow="TotalQuantity" msprop:Generator_ColumnPropNameInTable="TotalQuantityColumn" msprop:Generator_ColumnVarNameInTable="columnTotalQuantity" msprop:Generator_UserColumnName="TotalQuantity" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OrderItemDetails" msprop:Generator_RowEvHandlerName="OrderItemDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderItemDetailsRowDeleted" msprop:Generator_RowDeletingName="OrderItemDetailsRowDeleting" msprop:Generator_RowEvArgName="OrderItemDetailsRowChangeEvent" msprop:Generator_TablePropName="OrderItemDetails" msprop:Generator_RowChangedName="OrderItemDetailsRowChanged" msprop:Generator_RowChangingName="OrderItemDetailsRowChanging" msprop:Generator_TableClassName="OrderItemDetailsDataTable" msprop:Generator_RowClassName="OrderItemDetailsRow" msprop:Generator_TableVarName="tableOrderItemDetails" msprop:Generator_UserTableName="OrderItemDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrderId" msprop:Generator_ColumnPropNameInRow="OrderId" msprop:Generator_ColumnPropNameInTable="OrderIdColumn" msprop:Generator_ColumnVarNameInTable="columnOrderId" msprop:Generator_UserColumnName="OrderId" type="xs:int" />
+              <xs:element name="ProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_UserColumnName="ProductID" type="xs:int" />
+              <xs:element name="ProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_UserColumnName="ProductName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnitPrice" msprop:Generator_ColumnPropNameInRow="UnitPrice" msprop:Generator_ColumnPropNameInTable="UnitPriceColumn" msprop:Generator_ColumnVarNameInTable="columnUnitPrice" msprop:Generator_UserColumnName="UnitPrice" type="xs:decimal" />
+              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_UserColumnName="Quantity" type="xs:int" />
+              <xs:element name="TotalCost" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TotalCost" msprop:Generator_ColumnPropNameInTable="TotalCostColumn" msprop:Generator_ColumnVarNameInTable="columnTotalCost" msprop:Generator_UserColumnName="TotalCost" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:customerinformation" />
+      <xs:field xpath="mstns:CustomerID" />
+    </xs:unique>
+    <xs:unique name="OrderDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OrderDetails" />
+      <xs:field xpath="mstns:OrderID" />
+    </xs:unique>
+    <xs:unique name="OrderItemDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OrderItemDetails" />
+      <xs:field xpath="mstns:ProductID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
