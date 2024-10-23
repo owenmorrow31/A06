@@ -30,6 +30,10 @@ namespace A06 {
         
         private OrderItemDetailsDataTable tableOrderItemDetails;
         
+        private global::System.Data.DataRelation relationcustomerinformation_OrderDetails;
+        
+        private global::System.Data.DataRelation relationOrderDetails_OrderItemDetails;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +246,8 @@ namespace A06 {
                     this.tableOrderItemDetails.InitVars();
                 }
             }
+            this.relationcustomerinformation_OrderDetails = this.Relations["customerinformation_OrderDetails"];
+            this.relationOrderDetails_OrderItemDetails = this.Relations["OrderDetails_OrderItemDetails"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +264,14 @@ namespace A06 {
             base.Tables.Add(this.tableOrderDetails);
             this.tableOrderItemDetails = new OrderItemDetailsDataTable();
             base.Tables.Add(this.tableOrderItemDetails);
+            this.relationcustomerinformation_OrderDetails = new global::System.Data.DataRelation("customerinformation_OrderDetails", new global::System.Data.DataColumn[] {
+                        this.tablecustomerinformation.CustomerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOrderDetails.OrderIDColumn}, false);
+            this.Relations.Add(this.relationcustomerinformation_OrderDetails);
+            this.relationOrderDetails_OrderItemDetails = new global::System.Data.DataRelation("OrderDetails_OrderItemDetails", new global::System.Data.DataColumn[] {
+                        this.tableOrderDetails.OrderIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOrderItemDetails.OrderIdColumn}, false);
+            this.Relations.Add(this.relationOrderDetails_OrderItemDetails);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -800,14 +814,17 @@ namespace A06 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public OrderDetailsRow AddOrderDetailsRow(int OrderID, string DateOrdered, decimal TotalAmount, int NumberOfDistinctItems, int TotalQuantity) {
+            public OrderDetailsRow AddOrderDetailsRow(customerinformationRow parentcustomerinformationRowBycustomerinformation_OrderDetails, string DateOrdered, decimal TotalAmount, int NumberOfDistinctItems, int TotalQuantity) {
                 OrderDetailsRow rowOrderDetailsRow = ((OrderDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        OrderID,
+                        null,
                         DateOrdered,
                         TotalAmount,
                         NumberOfDistinctItems,
                         TotalQuantity};
+                if ((parentcustomerinformationRowBycustomerinformation_OrderDetails != null)) {
+                    columnValuesArray[0] = parentcustomerinformationRowBycustomerinformation_OrderDetails[0];
+                }
                 rowOrderDetailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderDetailsRow);
                 return rowOrderDetailsRow;
@@ -1126,15 +1143,18 @@ namespace A06 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public OrderItemDetailsRow AddOrderItemDetailsRow(int OrderId, int ProductID, string ProductName, decimal UnitPrice, int Quantity, decimal TotalCost) {
+            public OrderItemDetailsRow AddOrderItemDetailsRow(OrderDetailsRow parentOrderDetailsRowByOrderDetails_OrderItemDetails, int ProductID, string ProductName, decimal UnitPrice, int Quantity, decimal TotalCost) {
                 OrderItemDetailsRow rowOrderItemDetailsRow = ((OrderItemDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        OrderId,
+                        null,
                         ProductID,
                         ProductName,
                         UnitPrice,
                         Quantity,
                         TotalCost};
+                if ((parentOrderDetailsRowByOrderDetails_OrderItemDetails != null)) {
+                    columnValuesArray[0] = parentOrderDetailsRowByOrderDetails_OrderItemDetails[0];
+                }
                 rowOrderItemDetailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderItemDetailsRow);
                 return rowOrderItemDetailsRow;
@@ -1488,6 +1508,17 @@ namespace A06 {
             public void SetTotalPurchasesNull() {
                 this[this.tablecustomerinformation.TotalPurchasesColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public OrderDetailsRow[] GetOrderDetailsRows() {
+                if ((this.Table.ChildRelations["customerinformation_OrderDetails"] == null)) {
+                    return new OrderDetailsRow[0];
+                }
+                else {
+                    return ((OrderDetailsRow[])(base.GetChildRows(this.Table.ChildRelations["customerinformation_OrderDetails"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1581,6 +1612,17 @@ namespace A06 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public customerinformationRow customerinformationRow {
+                get {
+                    return ((customerinformationRow)(this.GetParentRow(this.Table.ParentRelations["customerinformation_OrderDetails"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["customerinformation_OrderDetails"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDateOrderedNull() {
                 return this.IsNull(this.tableOrderDetails.DateOrderedColumn);
             }
@@ -1625,6 +1667,17 @@ namespace A06 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalQuantityNull() {
                 this[this.tableOrderDetails.TotalQuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public OrderItemDetailsRow[] GetOrderItemDetailsRows() {
+                if ((this.Table.ChildRelations["OrderDetails_OrderItemDetails"] == null)) {
+                    return new OrderItemDetailsRow[0];
+                }
+                else {
+                    return ((OrderItemDetailsRow[])(base.GetChildRows(this.Table.ChildRelations["OrderDetails_OrderItemDetails"])));
+                }
             }
         }
         
@@ -1710,6 +1763,17 @@ namespace A06 {
                 }
                 set {
                     this[this.tableOrderItemDetails.TotalCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public OrderDetailsRow OrderDetailsRow {
+                get {
+                    return ((OrderDetailsRow)(this.GetParentRow(this.Table.ParentRelations["OrderDetails_OrderItemDetails"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["OrderDetails_OrderItemDetails"]);
                 }
             }
             
